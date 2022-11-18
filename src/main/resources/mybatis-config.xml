@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- /src/main/resources/mybatis-config.xml -->
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <settings>
+  	<!-- null 허용 -->
+  	<setting name="jdbcTypeForNull" value="VARCHAR"/>
+  	<setting name="mapUnderscoreToCamelCase" value="true"/>
+  </settings>
+  
+  <mappers> 
+  	<!-- 게시판, 회원가입(로그인) 관련 쿼리실행 -->
+  	<package name="com.wannaattention.www.dao"/>
+  	
+<!--  후원, 봉사 관련 쿼리 실행 { -->
+	<!-- 하영 학생이 해야할곳 _ (22.11.14) { --> 
+  	<package name="com.wannaattention.www.donation.dao"/>
+	<!-- } 하영 학생이 해야할곳 _ (22.11.14) -->
+<!--  } 후원, 봉사 관련 쿼리 실행 -->
+
+  </mappers>
+</configuration>
