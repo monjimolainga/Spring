@@ -148,7 +148,7 @@ function unAutoHypenPhone(str) {
 						<label class="col-3 btn btn-light">
 							<input type="radio" name="donaType" id="donaType2" value="2">일시후원
 						</label>
-						<label class="col-3 btn btn-light">
+						<label class="col-4 btn btn-light">
 							<input type="radio" name="donaType" id="donaType3" value="3">후원 증액
 						</label>
 					</div>
@@ -179,7 +179,7 @@ function unAutoHypenPhone(str) {
 						<label class="col-2 btn btn-light donaAmount">
 							<input type="radio" name="donaAmount" id="donaAmount2" value="30000">30,000
 						</label>
-						<label class="col-2 btn btn-light donaAmount">
+						<label class="col-3 btn btn-light donaAmount">
 							<input type="radio" name="donaAmount" id="donaAmount3" value="50000">50,000
 						</label>
 						<label class="col-3 btn" for="amountLabel">
@@ -187,8 +187,7 @@ function unAutoHypenPhone(str) {
 						</label> 
 					</div> 
 				</div>
-			</div>
-			<hr class="col-md-10 text-center" style="background-color: #28a745;">
+			</div><br>
 			
 <!-- 개인 선택시 View { -->
 			<div align="left" id="personalDiv" class="tab-content">
@@ -205,8 +204,7 @@ function unAutoHypenPhone(str) {
 					</div>
 				</div>
 			</div>
-<!-- } 개인 선택시 View -->
-<!-- 단체 선택시 View { -->
+<!-- 단체 선택시 View -->
 			<div align="left" id="allDiv" class="tab-content">
 				<div class="form-group row">
 					<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>기업(단체)명</strong></label>
@@ -221,7 +219,6 @@ function unAutoHypenPhone(str) {
 					</div>
 				</div>
 			</div><br>
-<!-- } 단체 선택시 View -->
 			
 			<!-- 04.연락처 -->
 			<div class="form-group row">
@@ -261,7 +258,7 @@ function unAutoHypenPhone(str) {
 					</div>
 				</div>
 			</div><br>
-			<hr class="col-md-10 text-center" style="background-color: #28a745;">
+		
 			
 			<!-- 06. 결제수단 -->
 			<!-- 06-1. 정기후원 및 후원증액 선택한경우 -->
@@ -290,7 +287,7 @@ function unAutoHypenPhone(str) {
 							   <input type="radio" name="payMethod" id="payMethod3" value="3">실시간 계좌이체  
 							</label>
 							<label class="col-5 btn btn-light">
-							   <input type="radio" name="payMethod" id="payMethod4" value="4">신용카드 
+							   <input type="radio" name="payMethod" id="payMethod4" value="2">신용카드 
 							</label>
 	             		</div>
 	             	</div>
@@ -299,13 +296,100 @@ function unAutoHypenPhone(str) {
 			<!-- 자동이체 -->
 			<div align="left" id="autoPayDiv" class="tab-content">
 				<div class="form-group row">
-					<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right">은행명</label>
+					<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>은행명</strong></label>
+					  <div class="col-10">
+					    <div class="btn-group btn-group-toggle" style="display: block; text-align: left;" data-toggle="buttons">
+						    <label class="col-2 btn btn-light bankName">
+							  <input type="radio" name="bankName" id="bankName1" value="우리은행">우리은행
+						    </label>
+						    <label class="col-2 btn btn-light donaAmount">
+							  <input type="radio" name="bankName" id="bankName2" value="국민은행">국민은행
+						    </label>
+						    <label class="col-2 btn btn-light donaAmount">
+							  <input type="radio" name="bankName" id="bankName3" value="신한은행">신한은행
+						    </label>
+						    <label class="col-2 btn btn-light donaAmount">
+							  <input type="radio" name="bankName" id="bankName4" value="카카오뱅크">카카오뱅크
+						    </label>
+						    <label class="col-2 btn btn-light donaAmount">
+							  <input type="radio" name="bankName" id="bankName5" value="한국씨티뱅크">한국씨티뱅크
+						    </label>
+				        </div>
+				      </div>
+				 </div>
+			</div><br>
+			<!-- 계좌번호 -->
+			<div class="form-group row">
+				<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>계좌번호</strong></label>
+				<div class="col-md-5">
+					<input type="text"  id="accountNum" name="accountNum" value="" placeholder="-없이 숫자만 입력하세요" class="form-control" maxlength="16" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
+				</div>
+			</div><br>
+			<!-- 예금주명 -->
+			<div align="left" id="personalDiv" class="tab-content">
+				<div class="form-group row">
+					  <label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>예금주명</strong></label>
+					<div class="col-sm-5">
+					  <input type="text" maxlength="150" name="depositorName" id="depositorName" value="" placeholder="예금주명을 입력하세요" maxlength="50" class="form-control"/>
+					</div>
+				</div>
+			</div><br>
+			<!-- 계좌번호 -->
+			<div class="form-group row">
+				<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>생년월일</strong></label>
+				<div class="col-md-5">
+					<input type="text"  id="birthday" name="birthday" value="" placeholder="주민등록앞 6자리를 입력하세요" class="form-control" maxlength="6" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
+				</div>
+			</div><br>
+				<!-- 출금일 선택  -->
+			<div class="form-group row">
+				<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>출금일</strong></label>
+				<div class="col-md-10">
+					<div class="btn-group btn-group-toggle" style="display: block; text-align: left;" data-toggle="buttons">
+						<label class="col-3 btn btn-light cardRegPayDate">
+							<input type="radio" name="cardRegPayDate" id="cardRegPayDate1" value="5">5일
+						</label>
+						<label class="col-3 btn btn-light donaAmount">
+							<input type="radio" name="cardRegPayDate" id="cardRegPayDate2" value="15">15일
+						</label>
+						<label class="col-4 btn btn-light donaAmount">
+							<input type="radio" name="cardRegPayDate" id="cardRegPayDate3" value="25">25일
+						</label>
+					</div> 
+				</div>
+			</div><br>
+			<!-- 소득공제 구분 선택 -->
+			<div class="form-group row">
+			<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>소득공제</strong></label>
+			<div class="col-10">
+				<div class="btn-group btn-group-toggle" style="display: block; text-align: left;" data-toggle="buttons">
+					<label class="col-5 btn btn-light">
+						<input type="radio" name="deductType" id="deductType1" value="1">개인 
+					</label>
+					<label class="col-5 btn btn-light">
+						<input type="radio" name="deductType" id="deductType2" value="2">사업자
+					</label>
 				</div>
 			</div>
+		</div><br>
+		  <!-- 소득공제번호 -->
+			<div class="form-group row">
+				<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>소득공제</strong></label>
+				<div class="col-md-5">
+					<input type="text"  id="deductNum" name="deductNum" value="" placeholder="-없이 숫자만 입력하세요" class="form-control" maxlength="16" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
+				</div>
+				<div class="col-sm-5">
+					<div class="form-check">
+						<input type="checkbox" class="form-check-input" id="deductNumChekbox">
+						<label class="form-check-label" for="deductNumChekbox"><font color ="red">미신청</font></label>
+					</div>
+				</div>
+			</div><br>
+		
 			<!-- 신용카드 -->
 			<div align="left" id="creditDiv" class="tab-content">
 				<div class="form-group row">
-					<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right">결제카드</label>
+					<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>결제카드</strong></label>
 				</div>
 			</div>
 			<div>
@@ -529,45 +613,107 @@ function unAutoHypenPhone(str) {
 	  				return;
 	  			}
 		  	}
-	  	} // 04
+	  	}  //04
 	  	
 		
 		// 05. 연락처 validation 체크
-		//var donorTelNumYn = $("#donorTelNum").val();
-		//
-		//if(isEmpty(donorTelNumYn)) {
-		//	alert("<spring:message code='donate.error.donorTelNum'/>");
-		//	return;
-		//}
-		//
-		//if(!isEmpty(donorTelNumYn)) {
-		//	fn_onlyNum(unAutoHypenPhone(donorTelNumYn));
-		//} // 05
+		var donorTelNumYn = $("#donorTelNum").val();
+		
+		if(isEmpty(donorTelNumYn)) {
+			alert("<spring:message code='donate.error.donorTelNum'/>");
+			return;
+		}
+		
+		if(!isEmpty(donorTelNumYn)) {
+			fn_onlyNum(unAutoHypenPhone(donorTelNumYn));
+		} // 05
 		
 		// 06. 이메일 validation 체크
-		//var emailId = $("#emailId").val();
-		//var emailDomain = $("#emailDomain").val();
-		//
-		//if(isEmpty(emailId) || isEmpty(emailDomain)) {
-		//	alert("<spring:message code='donate.error.donorEmail'/>");
-		//	return;
-		//} 
-		//
-		//if(!isEmpty(emailId) && !isEmpty(emailDomain)) {
-		//	$("#emailAddress").val(emailId + "@" + emailDomain); 
-		//}
-		//
-		//var donorEmailYn = $("#emailAddress").val();
-		//if(!isEmpty(donorEmailYn)) {
-		//	if(!email_check(donorEmailYn)) {
-		//		alert("<spring:message code='donate.error.donorEmail.form'/>");
-		//		return;
-		//	}
-		//} // 06
+		var emailId = $("#emailId").val();
+		var emailDomain = $("#emailDomain").val();
+		
+		if(isEmpty(emailId) || isEmpty(emailDomain)) {
+			alert("<spring:message code='donate.error.donorEmail'/>");
+			return;
+		} 
+		
+		if(!isEmpty(emailId) && !isEmpty(emailDomain)) {
+			$("#emailAddress").val(emailId + "@" + emailDomain); 
+		}
+		
+		var donorEmailYn = $("#emailAddress").val();
+		if(!isEmpty(donorEmailYn)) {
+			if(!email_check(donorEmailYn)) {
+				alert("<spring:message code='donate.error.donorEmail.form'/>");
+				return;
+			}
+		} // 06
+		// 07. 결제수단을 validation 체크
+		var payMethodChkYn = $('input[name=payMethod]:checked').val();
+		if(isEmpty(payMethodChkYn)) {
+			alert("<spring:message code='donate.error.payMethod'/>")
+			return;
+		} // 07
+		// 08. 은행명을 validation 체크
+		var bankNameChkYn = $('input[name=bankName]:checked').val();
+		if(isEmpty(bankNameChkYn)) {
+			alert("<spring:message code='donate.error.bankName'/>")
+			return;
+		} // 08
+		// 09. 계좌번호 validation 체크
+		var accountNumYn = $("#accountNum").val();
+		
+		if(isEmpty(accountNumYn)) {
+			alert("<spring:message code='donate.error.accountNum'/>");
+			return;
+		}  //09
+		// 10. 예금주명 validation 체크
+		var depositorNameYn = $("#depositorName").val();
+		
+		if(isEmpty(depositorNameYn)) {
+			alert("<spring:message code='donate.error.depositorName'/>");
+			return;
+		} //10
+		// 11. 연락처 validation 체크
+		var birthdayYn = $("#birthday").val();
+		
+		if(isEmpty(birthdayYn)) {
+			alert("<spring:message code='donate.error.birthday'/>");
+			return;
+		} //11
+		// 12. 출금일 validation 체크
+		var cardRegPayDateChkYn = $('input[name=cardRegPayDate]:checked').val();
+		if(isEmpty(cardRegPayDateChkYn)) {
+			alert("<spring:message code='donate.error.cardRegPayDate'/>")
+			return;
+		} // 12
+		
+		// 13. 소득공제번호 작성할경우
+		var deductNumChkYn = $("#deductNumChekbox");	
+		
+		deductNumChkYn.on('change', function() {
+	  		 if($(this).is(':checked')) { // 체크박스 선택
+	  			$("#deductNum").attr("readonly",true);
+	  			$("#deductNum").val("");
+	  		 } else {	// 체크박스 선택해제
+	  			 $("#deductNum").attr("readonly",false);
+	  		 }
+	  	});
+		// 13-1 소득공제  validation 체크
+		var deductNumChkYn = $("#deductNumChekbox");			// 미신청 체크	
+		
+		var deductNum = $("#deductNum").val();		// 소득공제번호	  	
+	  	// 13-2
+	       if(deductNumChkYn.is(":checked") == false) {
+		  		if(isEmpty(deductNum)) {
+	  				alert("<spring:message code='donate.error.deductNum'/>");
+	  				return;
+	  			 }
+		  	}
 
 		/* ###################### backup process (ajax로 controller내 기능 호출) ###################### */
 		
-// 재시도 필요...		
+// 재시도 필요.. 아직mapper에 프로퍼티값 다 안넣음.	
 		$("#amountLabel").val(uncomma($("#amountLabel").val()));
 		//$("#donorTelNum").val(unAutoHypenPhone($("#donorTelNum").val()));
 		
