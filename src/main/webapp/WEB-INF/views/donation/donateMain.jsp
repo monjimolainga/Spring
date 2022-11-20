@@ -273,10 +273,23 @@ window.onload = function(){
 					</div>
 				</div>
 			</div><br>
-		
+<!-- 후원증액 선택시 view -->
+<div align="left" id="addPayDiv" class="tab-content">
+				<div class="form-group row">
+					<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>은행명</strong></label>
+					  <div class="col-10">
+					    <div class="btn-group btn-group-toggle" style="display: block; text-align: left;" data-toggle="buttons">
+						    <label class="col-2 btn btn-light bankName">
+							  <input type="text" name="bankName" id="bankName1" value="우리은행">우리은행
+						    </label>
+						  
+				        </div>
+				      </div>
+				 </div><br>
+				 </div>
 			
 			<!-- 06. 결제수단 -->
-			<!-- 06-1. 정기후원 및 후원증액 선택한경우 -->
+			<!-- 06-1. 정기후원 및 후원증액 선택한경우view -->
 			<div align="left" id="regAndPlusDiv" class="tab-content">
 				<div class="form-group row">
 					<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>결제수단</strong></label>
@@ -292,7 +305,7 @@ window.onload = function(){
 					</div>
 				</div>
 			</div>
-			<!-- 06-2. 일시후원 선택한경우 -->
+			<!-- 06-2. 일시후원 선택한경우 view -->
 			<div align="left" id="tempDiv" class="tab-content">
 				<div class="form-group row">
 	             	<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>결제수단</strong></label>
@@ -308,7 +321,7 @@ window.onload = function(){
 	             	</div>
 				</div>
 			</div><br>
-			<!-- 자동이체 -->
+			<!-- 자동이체 선택시 view -->
 			<div align="left" id="autoPayDiv" class="tab-content">
 				<div class="form-group row">
 					<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>은행명</strong></label>
@@ -398,7 +411,7 @@ window.onload = function(){
 				</div>
 			</div>
 		</div><br>
-		<!-- 신용카드 -->
+		<!-- 신용카드 선택시 view -->
 			<div align="left" id="creditDiv" class="tab-content">
 				<div class="form-group row">
 					<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>결제카드</strong></label>
@@ -659,6 +672,27 @@ window.onload = function(){
 		});
 
 	});
+
+	        		  /* 후원증액 선택시 증액관련 뜨도록 #####맞게작성한건지모르겠음..############ */
+	        			$("#addPayDiv").show();
+	        			$("#addPayDiv").hide();
+	        			
+	        			$('input[name="donaType"]').click(function () {
+	        		          
+	        		          var donaTypeVal = $('input[name="donaType"]:checked').val();
+	        		          console.log(donaTypeVal);
+	        		          
+	        		          if(!isEmpty(donaTypeVal)) {
+	        		        	  if(donaTypeVal == '3') {
+	        		        		  $("#addPayDiv").show();
+	        		        	  } else if(donaTypeVal == '1'|| donaTypeVal == '2') {
+	        		        		  $("#addPayDiv").hide();
+	        		        	  } else {
+	        		        	  }
+	        		          }
+	        			});
+
+	        		});
 	
 	// 후원신청하기
 	function fncRegist() {
