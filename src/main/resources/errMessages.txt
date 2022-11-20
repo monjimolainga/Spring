@@ -18,5 +18,6 @@ donate.error.bankName=은행명을 선택하세요.
 donate.error.depositorName=예금주명을 입력하세요.
 donate.error.accountNum=계좌번호를 입력하세요.
 donate.error.birthday=주민등록앞 6자리를 입력하세요.
-donate.error.cardRegPayDate=출금일을 선택하세요.
+donate.error.withDate=출금일을 선택하세요.
+donate.error.deductType=소득공제구분을 선택하세요.
 donate.error.deductNum=소득공제번호를 확인하세요.

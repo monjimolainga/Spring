@@ -19,7 +19,9 @@ import com.wannaattention.www.donation.vo.DonationVO;
 public interface DonationMapper {
 
 	/** 후원을 신청한다 */
-	@Insert("INSERT INTO DONATION_TB (DONA_NUM, DONOR_TYPE, DONA_TYPE, DONA_AMOUNT) "
-			+ "VALUES (DONA_SEQ.NEXTVAL, #{donorType}, #{donaType}, #{donaAmount})")
+	@Insert("INSERT INTO DONATION_TB (DONA_NUM, DONOR_TYPE, DONA_TYPE, DONA_AMOUNT, DONOR_NAME, DONOR_TEL, "
+			+ "DONOR_EMAIL, PAY_METHOD, BANK_NAME, ACCOUNT_NUM, DEPOSITOR_NAME, BIRTHDAY, WITH_DATE, DEDUCT_TYPE, DEDUCT_NUM) "
+			+ "VALUES (DONA_SEQ.NEXTVAL, #{donorType}, #{donaType}, #{donaAmount}, #{donorName}, #{donorTel}, "
+			+ "#{donorEmail}, #{payMethod}, #{bankName}, #{accountNum}, #{depositorName}, #{birthday}, #{withDate}, #{deductType}, #{deductNum})")
 	public void insertDonate(DonationVO donationVO);
 }

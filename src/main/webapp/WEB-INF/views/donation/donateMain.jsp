@@ -128,6 +128,21 @@ function unAutoHypenPhone(str) {
 	str = String(str);
 	return str.replace(/-/g, '');
 }
+// 신용카드 결제일 결제날짜 hidden input value
+window.onload = function(){
+	                var td = new Date();                   //오늘 날짜
+	                var yyyy = td.getFullYear();           //년도  
+	                var mm = "" + (td.getMonth()+1);    //월
+	                var dd = "" + td.getDate();           //일 
+
+	                if(mm.length < 2) mm = "0" + mm;
+	                if(dd.length < 2) dd = "0" + dd;
+
+	                var Today = yyyy.toString() + mm + dd; 
+
+	                document.getElementById(cardPayDate).value = Today;
+
+	        }
 /* ############################################## */
 </script>
 </head>
@@ -316,29 +331,26 @@ function unAutoHypenPhone(str) {
 						    </label>
 				        </div>
 				      </div>
-				 </div>
-			</div><br>
+				 </div><br>
 			<!-- 계좌번호 -->
 			<div class="form-group row">
 				<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>계좌번호</strong></label>
 				<div class="col-md-5">
-					<input type="text"  id="accountNum" name="accountNum" value="" placeholder="-없이 숫자만 입력하세요" class="form-control" maxlength="16" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
+					<input type="text" name="accountNum" id="accountNum" value="" placeholder="-없이 숫자만 입력하세요" class="form-control" maxlength="16" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
 				</div>
 			</div><br>
 			<!-- 예금주명 -->
-			<div align="left" id="personalDiv" class="tab-content">
-				<div class="form-group row">
+			<div class="form-group row">
 					  <label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>예금주명</strong></label>
 					<div class="col-sm-5">
 					  <input type="text" maxlength="150" name="depositorName" id="depositorName" value="" placeholder="예금주명을 입력하세요" maxlength="50" class="form-control"/>
 					</div>
-				</div>
 			</div><br>
-			<!-- 계좌번호 -->
+			<!-- 생년월일 -->
 			<div class="form-group row">
 				<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>생년월일</strong></label>
 				<div class="col-md-5">
-					<input type="text"  id="birthday" name="birthday" value="" placeholder="주민등록앞 6자리를 입력하세요" class="form-control" maxlength="6" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
+					<input type="text" name="birthday" id="birthday" value="" placeholder="-없이 숫자만 입력하세요" class="form-control" maxlength="6" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
 				</div>
 			</div><br>
 				<!-- 출금일 선택  -->
@@ -346,21 +358,21 @@ function unAutoHypenPhone(str) {
 				<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>출금일</strong></label>
 				<div class="col-md-10">
 					<div class="btn-group btn-group-toggle" style="display: block; text-align: left;" data-toggle="buttons">
-						<label class="col-3 btn btn-light cardRegPayDate">
-							<input type="radio" name="cardRegPayDate" id="cardRegPayDate1" value="5">5일
+						<label class="col-3 btn btn-light withDate">
+							<input type="radio" name="withDate" id="withDate1" value="5">5일
 						</label>
-						<label class="col-3 btn btn-light donaAmount">
-							<input type="radio" name="cardRegPayDate" id="cardRegPayDate2" value="15">15일
+						<label class="col-3 btn btn-light withDate">
+							<input type="radio" name="withDate" id="withDate2" value="15">15일
 						</label>
-						<label class="col-4 btn btn-light donaAmount">
-							<input type="radio" name="cardRegPayDate" id="cardRegPayDate3" value="25">25일
+						<label class="col-4 btn btn-light withDate">
+							<input type="radio" name="withDate" id="withDate3" value="25">25일
 						</label>
 					</div> 
 				</div>
 			</div><br>
 			<!-- 소득공제 구분 선택 -->
 			<div class="form-group row">
-			<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>소득공제</strong></label>
+			<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>소득공제구분</strong></label>
 			<div class="col-10">
 				<div class="btn-group btn-group-toggle" style="display: block; text-align: left;" data-toggle="buttons">
 					<label class="col-5 btn btn-light">
@@ -374,7 +386,7 @@ function unAutoHypenPhone(str) {
 		</div><br>
 		  <!-- 소득공제번호 -->
 			<div class="form-group row">
-				<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>소득공제</strong></label>
+				<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>소득공제번호</strong></label>
 				<div class="col-md-5">
 					<input type="text"  id="deductNum" name="deductNum" value="" placeholder="-없이 숫자만 입력하세요" class="form-control" maxlength="16" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
 				</div>
@@ -384,16 +396,112 @@ function unAutoHypenPhone(str) {
 						<label class="form-check-label" for="deductNumChekbox"><font color ="red">미신청</font></label>
 					</div>
 				</div>
-			</div><br>
-		
-			<!-- 신용카드 -->
+			</div>
+		</div><br>
+		<!-- 신용카드 -->
 			<div align="left" id="creditDiv" class="tab-content">
 				<div class="form-group row">
 					<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>결제카드</strong></label>
+					  <div class="col-10">
+					    <div class="btn-group btn-group-toggle" style="display: block; text-align: left;" data-toggle="buttons">
+						    <label class="col-2 btn btn-light cardName">
+							  <input type="radio" name="cardName" id="cardName1" value="1">BC카드
+						    </label>
+						    <label class="col-2 btn btn-light donaAmount">
+							  <input type="radio" name="cardName" id="cardName2" value="2">VISA카드
+						    </label>
+						    <label class="col-2 btn btn-light donaAmount">
+							  <input type="radio" name="cardName" id="cardName3" value="3">롯데카드
+						    </label>
+						    <label class="col-2 btn btn-light donaAmount">
+							  <input type="radio" name="cardName" id="cardName4" value="4">삼성카드
+						    </label>
+						    <label class="col-2 btn btn-light donaAmount">
+							  <input type="radio" name="cardName" id="cardName5" value="5">현대카드
+						    </label>
+				        </div>
+				      </div>
+				    </div><br>
+				<!-- 카드번호 --> 
+			   <div class="form-group row">
+				<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>카드번호</strong></label>
+				<div class="col-md-5">
+					<input type="text"  id="cardNum" name="cardNum" value="" placeholder="숫자만 입력하세요" class="form-control" maxlength="16" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
 				</div>
-			</div>
+			</div><br>
+			  <div class="input-group row">
+&nbsp;&nbsp;&nbsp;<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>유효기간</strong></label>
+			  <!--  카드유효기간 MM -->
+			            <div class="col-sm-2">
+                          <select class="custom-select" name="expDate" id="expDateMonthSelect">
+                             <option selected>MM</option>
+                             <option value="01">01</option>
+                             <option value="02">02</option>
+                             <option value="03">03</option>
+                             <option value="04">04</option>
+                             <option value="05">05</option>
+                             <option value="06">06</option>
+                             <option value="07">07</option>
+                             <option value="08">08</option>
+                             <option value="09">09</option>
+                             <option value="10">10</option>
+                             <option value="11">11</option>
+                             <option value="12">12</option>
+                          </select>
+                        </div>
+              <!--  카드유효기간 YY -->
+                        <div class="col-sm-2">
+                          <select class="custom-select" name="expDate" id="expDateYearSelect">
+                             <option selected>YY</option>
+                             <option value="22">22</option>
+                             <option value="23">23</option>
+                             <option value="24">24</option>
+                             <option value="25">25</option>
+                             <option value="26">26</option>
+                             <option value="27">27</option>
+                             <option value="28">28</option>
+                             <option value="29">29</option>
+                             <option value="30">30</option>
+                             <option value="31">31</option>
+                             <option value="32">32</option>
+                             <option value="33">33</option>
+                          </select>
+                        </div>            
+              </div><br>
+             <!-- 결제방식 -->
+             <div class="input-group row">
+&nbsp;&nbsp;&nbsp;<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>유효기간</strong></label>
+			  <!-- 할부방법 -->
+			            <div class="col-sm-4">
+                          <select class="custom-select" name="expDate" id="expDateMonthSelect">
+                             <option selected>선택해주세요</option>
+                             <option value="0">일시불</option>
+                             <option value="1">1개월할부</option>
+                             <option value="3">3개월할부</option>
+                             <option value="6">6개월할부</option>
+                             <option value="12">12개월할부</option>
+                          </select>
+                        </div>
+             </div><br>
+             <!-- 카드주명 -->
+				<div class="form-group row">
+					  <label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>카드주명</strong></label>
+					<div class="col-sm-5">
+					  <input type="text" maxlength="150" name="cardOwner" id="cardOwner" value="" placeholder="카드주명을 입력하세요" maxlength="50" class="form-control"/>
+					</div>
+				</div><br>
+		    <!-- 신용카드 : 생년월일  -->
+		    <div class="form-group row">
+				<label for="inputHorizontalSuccess" class="col-sm-2 col-form-label text-right border-right"><strong>생년월일</strong></label>
+				<div class="col-md-5">
+					<input type="text" name="birthday" id="birthday2" value="" placeholder="주민등록앞 6자리를 입력하세요" class="form-control" maxlength="6" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"/>
+				</div>
+			</div><br>
+			<!-- 결제일 -->
+			  <input type="hidden" id="cardPayDate" name="cardPayDate" value="">
+             </div>
 			<div>
-				<button type="submit" class="btn btn-primary mt-3" id="goDonateBtn" onclick="fncRegist();return false;">신청하기</button>
+				<center><button type="submit" class="btn btn-primary mt-3" id="goDonateBtn" onclick="fncRegist();return false;">신청하기</button></center>
 			</div>
 		</form:form>
 	</section>
@@ -674,21 +782,27 @@ function unAutoHypenPhone(str) {
 			alert("<spring:message code='donate.error.depositorName'/>");
 			return;
 		} //10
-		// 11. 연락처 validation 체크
+		// 11. 생년월일 validation 체크
 		var birthdayYn = $("#birthday").val();
 		
 		if(isEmpty(birthdayYn)) {
 			alert("<spring:message code='donate.error.birthday'/>");
 			return;
-		} //11
+		} //10
 		// 12. 출금일 validation 체크
-		var cardRegPayDateChkYn = $('input[name=cardRegPayDate]:checked').val();
-		if(isEmpty(cardRegPayDateChkYn)) {
-			alert("<spring:message code='donate.error.cardRegPayDate'/>")
+		var withDateChkYn = $('input[name=withDate]:checked').val();
+		if(isEmpty(withDateChkYn)) {
+			alert("<spring:message code='donate.error.withDate'/>")
 			return;
 		} // 12
 		
-		// 13. 소득공제번호 작성할경우
+		// 13. 소득공제 구분 validation 체크
+		var deductTypeChkYn = $('input[name=deductType]:checked').val();
+		if(isEmpty(deductTypeChkYn)) {
+			alert("<spring:message code='donate.error.deductType'/>")
+			return;
+		} // 
+		// 13-1. 소득공제번호 작성할경우 ############## 소득공제부분 미신청체크시 소득공제구분 번호 비활성화가 안됨 ###############
 		var deductNumChkYn = $("#deductNumChekbox");	
 		
 		deductNumChkYn.on('change', function() {
@@ -699,11 +813,11 @@ function unAutoHypenPhone(str) {
 	  			 $("#deductNum").attr("readonly",false);
 	  		 }
 	  	});
-		// 13-1 소득공제  validation 체크
+		// 13-2 소득공제  validation 체크
 		var deductNumChkYn = $("#deductNumChekbox");			// 미신청 체크	
 		
 		var deductNum = $("#deductNum").val();		// 소득공제번호	  	
-	  	// 13-2
+	  	// 13-3
 	       if(deductNumChkYn.is(":checked") == false) {
 		  		if(isEmpty(deductNum)) {
 	  				alert("<spring:message code='donate.error.deductNum'/>");
